@@ -1,44 +1,44 @@
-% video = VideoReader('2\\taewoo.mp4');
-% frames_rgb = {};
-% while hasFrame(video)
-%    frames_rgb{end+1} = readFrame(video);
-% end
-% framecount = size(frames_rgb, 2);
-% % convert frames to double-precision and range [0, 1]
-% frames_rgb = cellfun(@(x) double(x) ./ 256.0, frames_rgb, 'UniformOutput', false);
-% % convert frames to yiq color space
-% frames_yiq = cellfun(@(x) rgb2ntsc(x), frames_rgb, 'UniformOutput', false);
-% 
-% pyramid = cellfun(@LaplacianPyramid, frames_yiq, 'UniformOutput', false);
-% % pyramid : {1 x frame cell} {1 x level cell} (...)
-% pyramid = cat(1,pyramid{:});
-% % pyramid : {frame x level cell} (...)
-% pyramid = pyramid';
-% % pyramid : {level x frame cell} (...)
-% levelcount = size(pyramid, 1);
-% 
-% timeEachLevel = {};
-% for i = 1:levelcount
-%    timeEachLevel{end+1} = cat(4, pyramid{i,:});
-% end
-% % timeEachLevel : {1 x level cell} ( width x height x 3 x frames )
-% 
-% for i = 1:levelcount
-%    freqEachLevel = cellfun(@(x) fft(x, framecount, 4), timeEachLevel, ...
-%    'UniformOutput', false);
-% end
-% 
-% plotdata = [];
-% for i = 1:framecount
-%     m = 0;
-% 	for j = 1:levelcount
-%         cell = freqEachLevel{j}(:, :, :, i);
-%         m = m + mean(abs(cell(:)));
-% 	end
-%     plotdata = [plotdata; m];
-% end
-% plot(plotdata);
-% ylim([0, 1])
+video = VideoReader('2\\taewoo.mp4');
+frames_rgb = {};
+while hasFrame(video)
+   frames_rgb{end+1} = readFrame(video);
+end
+framecount = size(frames_rgb, 2);
+% convert frames to double-precision and range [0, 1]
+frames_rgb = cellfun(@(x) double(x) ./ 256.0, frames_rgb, 'UniformOutput', false);
+% convert frames to yiq color space
+frames_yiq = cellfun(@(x) rgb2ntsc(x), frames_rgb, 'UniformOutput', false);
+
+pyramid = cellfun(@LaplacianPyramid, frames_yiq, 'UniformOutput', false);
+% pyramid : {1 x frame cell} {1 x level cell} (...)
+pyramid = cat(1,pyramid{:});
+% pyramid : {frame x level cell} (...)
+pyramid = pyramid';
+% pyramid : {level x frame cell} (...)
+levelcount = size(pyramid, 1);
+
+timeEachLevel = {};
+for i = 1:levelcount
+   timeEachLevel{end+1} = cat(4, pyramid{i,:});
+end
+% timeEachLevel : {1 x level cell} ( width x height x 3 x frames )
+
+for i = 1:levelcount
+   freqEachLevel = cellfun(@(x) fft(x, framecount, 4), timeEachLevel, ...
+   'UniformOutput', false);
+end
+
+plotdata = [];
+for i = 1:framecount
+    m = 0;
+	for j = 1:levelcount
+        cell = freqEachLevel{j}(:, :, :, i);
+        m = m + mean(abs(cell(:)));
+	end
+    plotdata = [plotdata; m];
+end
+plot(plotdata);
+ylim([0, 1])
 
 freqEachLevel_result = {};
 band_a1 = 81; % left boundary of passing band
