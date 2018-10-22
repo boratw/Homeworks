@@ -1,6 +1,6 @@
 % % Read Image
 img_back = imresize(imread('data/20180628_101201.jpg'), 0.25, 'bilinear');
-img_obj = imresize(imread('data/wolf.jpg'), 0.2, 'bilinear');
+img_obj = imresize(imread('data/1-551.jpg'), 0.25, 'bilinear');
 
 % Get Align mask
 objmask = getMask(img_obj);
@@ -8,7 +8,7 @@ objmask = getMask(img_obj);
 
 img_back = double(img_back);
 img_obj = double(img_obj);
-img_source = img_back(226:400, 301:503, :);
+img_source = img_back(201:353, 301:529, :);
 imshow(img_source / 256.);
 
 [height, width, chan] = size(img_obj);
@@ -104,9 +104,9 @@ vimg_b = reshape(v_b, height, width);
 for y = 2:height-1
     for x = 2:width-1
         if objmask(y, x)
-            img_back(y+325, x+200, 1) = vimg_r(y,x);
-            img_back(y+325, x+200, 2) = vimg_g(y,x);
-            img_back(y+325, x+200, 3) = vimg_b(y,x);
+            img_back(y+200, x+300, 1) = vimg_r(y,x);
+            img_back(y+200, x+300, 2) = vimg_g(y,x);
+            img_back(y+200, x+300, 3) = vimg_b(y,x);
         end
     end
 end
@@ -126,9 +126,9 @@ vimg_b = reshape(v_b, height, width);
 for y = 2:height-1
     for x = 2:width-1
         if objmask(y, x)
-            img_back(y+325, x+200, 1) = vimg_r(y,x);
-            img_back(y+325, x+200, 2) = vimg_g(y,x);
-            img_back(y+325, x+200, 3) = vimg_b(y,x);
+            img_back(y+200, x+300, 1) = vimg_r(y,x);
+            img_back(y+200, x+300, 2) = vimg_g(y,x);
+            img_back(y+200, x+300, 3) = vimg_b(y,x);
         end
     end
 end
@@ -148,9 +148,9 @@ vimg_b = reshape(v_b, height, width);
 for y = 2:height-1
     for x = 2:width-1
         if objmask(y, x)
-            img_back(y+325, x+200, 1) = vimg_r(y,x);
-            img_back(y+325, x+200, 2) = vimg_g(y,x);
-            img_back(y+325, x+200, 3) = vimg_b(y,x);
+            img_back(y+200, x+300, 1) = vimg_r(y,x);
+            img_back(y+200, x+300, 2) = vimg_g(y,x);
+            img_back(y+200, x+300, 3) = vimg_b(y,x);
         end
     end
 end
@@ -170,9 +170,9 @@ vimg_b = reshape(v_b, height, width);
 for y = 2:height-1
     for x = 2:width-1
         if objmask(y, x)
-            img_back(y+325, x+200, 1) = vimg_r(y,x);
-            img_back(y+325, x+200, 2) = vimg_g(y,x);
-            img_back(y+325, x+200, 3) = vimg_b(y,x);
+            img_back(y+200, x+300, 1) = vimg_r(y,x);
+            img_back(y+200, x+300, 2) = vimg_g(y,x);
+            img_back(y+200, x+300, 3) = vimg_b(y,x);
         end
     end
 end
