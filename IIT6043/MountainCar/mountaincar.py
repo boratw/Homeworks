@@ -33,7 +33,7 @@ nextplayer = np.zeros((1, 2))
 f_step = open("step.txt", "wt")
 f_loss = open("loss.txt", "wt")
 # Run Episode
-for iteration in range(1, 10001) :
+for iteration in range(1, 5001) :
 	#Reset Player
 	player[0][0] = random.random() * 0.2 - 0.6
 	player[0][1] = 0.
@@ -41,7 +41,7 @@ for iteration in range(1, 10001) :
 	#Run Step
 	step = 0
 	avgloss = 0.
-	while step < 1000 and player[0][0] < 0.1 :
+	while step < 2000 and player[0][0] < 0.5 :
 		# Use epsilon-greedy
 		r = random.random()
 		if r < 0.1 :
@@ -55,6 +55,10 @@ for iteration in range(1, 10001) :
 		if nextplayer[0][0] < -1.2 :
 			nextplayer[0][0] = -1.2
 		nextplayer[0][1] = player[0][1] + 0.001 * (action-1) - 0.0025 * np.cos(3 * player[0][0])
+		if nextplayer[0][1] < -0.07 :
+			nextplayer[0][1] = -0.07
+		elif nextplayer[0][1] > 0.07 :
+			nextplayer[0][1] = 0.07
 		
 		# Get Next Q Value
 		nextQ = sess.run(Q, {x : nextplayer})
@@ -82,7 +86,6 @@ for iteration in range(1, 10001) :
 	f_loss.write(str(avgloss/step) + "\n")
 
 	if(iteration % 100 == 0) :
-		f_q = open("q_" + str(iteration) + ".txt", "wt")
 		f_a = open("a_" + str(iteration) + ".txt", "wt")
 		for i in range(100) :
 			for j in range(100):
@@ -90,7 +93,5 @@ for iteration in range(1, 10001) :
 				player[0][1] = -0.07 + j * 0.0014
 				res = sess.run(Q, {x : player})
 				action = np.argmax(res[0])
-				f_q.write(str(res[0][action]) + " ")
 				f_a.write(str(action) + " ")
-			f_q.write("\n")
 			f_a.write("\n")
