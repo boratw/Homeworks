@@ -1,0 +1,1238 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"맑은 고딕";
+	panose-1:2 11 5 3 2 0 0 2 0 4;}
+@font-face
+	{font-family:"\@맑은 고딕";
+	panose-1:2 11 5 3 2 0 0 2 0 4;}
+@font-face
+	{font-family:바탕체;
+	panose-1:2 3 6 9 0 1 1 1 1 1;}
+@font-face
+	{font-family:"\@바탕체";
+	panose-1:2 3 6 9 0 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:107%;
+	text-autospace:none;
+	word-break:break-hangul;
+	font-size:10.0pt;
+	font-family:"맑은 고딕";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"머리글 Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:107%;
+	layout-grid-mode:char;
+	text-autospace:none;
+	word-break:break-hangul;
+	font-size:10.0pt;
+	font-family:"맑은 고딕";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"바닥글 Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:107%;
+	layout-grid-mode:char;
+	text-autospace:none;
+	word-break:break-hangul;
+	font-size:10.0pt;
+	font-family:"맑은 고딕";}
+span.MsoPlaceholderText
+	{color:gray;}
+span.Char
+	{mso-style-name:"머리글 Char";
+	mso-style-link:머리글;}
+span.Char0
+	{mso-style-name:"바닥글 Char";
+	mso-style-link:바닥글;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:107%;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:3.0cm 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=KO>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:16.0pt;line-height:
+107%'>Q1. HDR IMAGING</span></b><b><span lang=EN-US style='font-size:12.0pt;
+line-height:107%'> </span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>Description</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:107%'>Dave
+Coffin</span><span style='font-size:12.0pt;line-height:107%'>의 <span
+lang=EN-US>dcraw </span>프로그램의 소스코드를 받아 컴파일하여 사용하였다<span lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><span lang=EN-US><img width=493 height=19 id="그림 30"
+src="ans.files/image001.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>사용한 파라미터는 다음과
+같다<span lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:107%'>-o
+1 : </span><span style='font-size:12.0pt;line-height:107%'>출력물의 색공간을 <span
+lang=EN-US>sRGB</span>로 한다<span lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:107%'>-w
+: white balancing</span><span style='font-size:12.0pt;line-height:107%'>을 수행한다<span
+lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:107%'>-q
+3 : </span><span style='font-size:12.0pt;line-height:107%'>최대한 퀄리티가 높은 방법으로<span
+lang=EN-US> interpolation</span>을 수행한다<span lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:107%'>-6
+: 16bit color</span><span style='font-size:12.0pt;line-height:107%'>로 출력한다<span
+lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:107%'>-W
+: </span><span style='font-size:12.0pt;line-height:107%'>이미지를 자동으로 밝게 하지 않는다<span
+lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:107%'>-T
+: </span><span style='font-size:12.0pt;line-height:107%'>출력물을 <span lang=EN-US>tiff</span>로
+한다<span lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>Result</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US><img width=903 height=180 id="그림 31"
+src="ans.files/image002.png"></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:16.0pt;line-height:
+107%'>Q2. LINEARIZE RENDERED IMAGES</span></b><b><span lang=EN-US
+style='font-size:12.0pt;line-height:107%'> </span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>Description</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US><img width=926 height=66 id="그림 13"
+src="ans.files/image003.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>주어진 공식을 보면 이
+공식은 <span lang=EN-US>pixel</span>의 위치와는 <span lang=EN-US>independent</span>한 식임을
+알 수 있다<span lang=EN-US>. </span>따라서 픽셀의 일부를 샘플링하여 실행 속도를 높였다<span lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><span
+lang=EN-US style='font-size:10.0pt;line-height:107%;font-family:"맑은 고딕";
+position:relative;top:7.5pt'><img width=75 height=30
+src="ans.files/image004.png"></span><span style='font-size:12.0pt;line-height:
+107%'>가 한 픽셀에서는 상수라는 점에서<span lang=EN-US>, </span></span><span
+lang=EN-US style='font-size:10.0pt;line-height:107%;font-family:"맑은 고딕";
+position:relative;top:8.5pt'><img width=425 height=32
+src="ans.files/image005.png"></span><span lang=EN-US style='font-size:16.0pt;
+line-height:107%'>&nbsp;</span><span style='font-size:12.0pt;line-height:107%'>이라는
+<span lang=EN-US>L</span>과 상관없는 식을 만들 수 있다<span lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>다음으로 </span><span
+lang=EN-US style='font-size:10.0pt;line-height:107%;font-family:"맑은 고딕";
+position:relative;top:8.5pt'><img width=21 height=32
+src="ans.files/image006.png"></span><span style='font-size:12.0pt;line-height:
+107%'>에서만 <span lang=EN-US>1</span>이고 나머지는 <span lang=EN-US>0</span>인<span
+lang=EN-US> 256-D </span>벡터 </span><span
+lang=EN-US style='font-size:10.0pt;line-height:107%;font-family:"맑은 고딕";
+position:relative;top:8.5pt'><img width=27 height=32
+src="ans.files/image007.png"></span><span style='font-size:12.0pt;line-height:
+107%'>를 정의하면<span lang=EN-US>, </span></span><span
+lang=EN-US style='font-size:10.0pt;line-height:107%;font-family:"맑은 고딕";
+position:relative;top:8.5pt'><img width=51 height=32
+src="ans.files/image008.png"></span><span lang=EN-US style='font-size:16.0pt;
+line-height:107%'>&nbsp;= </span><span
+lang=EN-US style='font-size:10.0pt;line-height:107%;font-family:"맑은 고딕";
+position:relative;top:8.5pt'><img width=55 height=32
+src="ans.files/image009.png"></span><span lang=EN-US style='font-size:16.0pt;
+line-height:107%'>&nbsp;</span><span style='font-size:12.0pt;line-height:107%'>로
+적을 수 있고 이를 펼치면 하나의 픽셀에 대하여</span></p>
+
+<p class=MsoNormal><span
+lang=EN-US style='font-size:10.0pt;line-height:107%;font-family:"맑은 고딕";
+position:relative;top:44.5pt'><img width=405 height=130
+src="ans.files/image010.png"></span><span style='font-size:12.0pt;line-height:
+107%'>라는 식을 만들 수 있다<span lang=EN-US>. </span>이 벡터의 <span lang=EN-US>1</span>차 미분은
+모두 <span lang=EN-US>1</span>이다<span lang=EN-US>. weight</span>까지 고려하면 하나의 픽셀에 대하여</span></p>
+
+<p class=MsoNormal><span
+lang=EN-US style='font-size:10.0pt;line-height:107%;font-family:"맑은 고딕"'><img
+width=602 height=275 src="ans.files/image011.png"></span><span
+style='font-size:12.0pt;line-height:107%'>을 근사적으로 얻을 수 있다<span lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>이제 </span><span
+lang=EN-US style='font-size:10.0pt;line-height:107%;font-family:"맑은 고딕";
+position:relative;top:7.5pt'><img width=93 height=30
+src="ans.files/image012.png"></span><span style='font-size:12.0pt;line-height:
+107%'>형태의 식을 얻었으므로 샘플링한 모든 픽셀과 라플라시안 매트릭스까지 더하여<span lang=EN-US> least-squares
+optimization</span>을 풀면 된다<span lang=EN-US>.</span></span><b><span lang=EN-US
+style='font-size:16.0pt;line-height:107%'> </span></b></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>이때 모든 등식을 미분
+형태로만 구성하였으므로 <span lang=EN-US>constant shift</span>가 생길 수 있다<span lang=EN-US>. </span>따라서
+<span lang=EN-US>g(255) = log(255)</span>로 고정하였다<span lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>Code</span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='background:#FFF2CC;border-collapse:collapse;border:none'>
+ <tr style='height:90.6pt'>
+  <td width=707 valign=top style='width:538.25pt;border:solid windowtext 1.0pt;
+  padding:5.4pt 5.4pt 5.4pt 5.4pt;height:90.6pt'>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:forestgreen'>% Load image as reduced
+  size for reduce memory usage.</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>image_origin = {};</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>for</span><span lang=EN-US
+  style='font-family:"Courier New";color:black'> i = 1:16</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+  image_origin{end+1} = imread(strcat(</span><span lang=EN-US style='font-family:
+  "Courier New";color:#A020F0'>'res_stack\\exposure'</span><span lang=EN-US
+  style='font-family:"Courier New";color:black'>,int2str(i),</span><span
+  lang=EN-US style='font-family:"Courier New";color:#A020F0'>'.tiff'</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'>));</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+  image_origin{end} = im2uint8(imresize(image_origin{end}, 0.125));</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>for</span><span lang=EN-US
+  style='font-family:"Courier New";color:black'> chan = 1:3</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:forestgreen'>% sample 2000
+  pointe</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; samples =
+  zeros(32000, 1, </span><span lang=EN-US style='font-family:"Courier New";
+  color:#A020F0'>'uint8'</span><span lang=EN-US style='font-family:"Courier New";
+  color:black'>);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> i = 0:1999</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  x = randi(750);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  y = randi(500);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> f = 1:16</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  samples(i * 16 + f) = image_jpg{f}(y, x, chan);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; lambda =
+  1.0;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:forestgreen'>% construct G
+  matrix and the differance value b</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; getg =
+  zeros(32256, 256);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; b =
+  zeros(30255, 1);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> i = 0:1999</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> j = 1:15</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  getg((i * 16 + j), samples((i * 16 + j)) + 1) = 1;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  b(i * 15 + j) = 0.693147180 * getw(samples(i * 16 + j + 1));</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  getg((i * 16 + 16), samples((i * 16 + 16)) + 1) = 1;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:forestgreen'>% append
+  original g for create laplacian</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> i = 1:256</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  getg(32000 + i, i) = 1;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:forestgreen'>% set constant
+  (for preserve 255)</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; b(30255) =
+  log(255);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:forestgreen'>% set first
+  derivative matrix </span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; diff =
+  zeros(30255, 32256);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> i = 0:1999</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> j = 1:15</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  diff(i * 15 + j, i * 16 + j) = -b(i * 15 + j);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  diff(i * 15 + j, i * 16 + j + 1) = b(i * 15 + j);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:forestgreen'>% set second
+  derivative (laplacian) matrix </span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> i = 1:254</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  diff(30000 + i, 32000 + i) =&nbsp; 1 * lambda;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  diff(30000 + i, 32000 + i + 1) = -2 * 1 * lambda;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  diff(30000 + i, 32000 + i + 2) = 1 * lambda;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:forestgreen'>% set constant
+  (for preserve 255)</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; diff(30255,
+  32256) = 1;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; A = diff *
+  getg;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; g(chan, :) =
+  A \ b;</span><span lang=EN-US style='font-size:12.0pt;font-family:"Courier New"'>
+  </span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>end</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>Result </span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr>
+  <td width=241 valign=top style='width:184.3pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>w
+  = uniform</span></p>
+  </td>
+  <td width=234 valign=top style='width:184.3pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>w
+  = tent</span></p>
+  </td>
+  <td width=237 valign=top style='width:184.3pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>w
+  = gaussian</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=241 valign=top style='width:184.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US><img width=227
+  height=239 id="그림 32" src="ans.files/image013.png"></span></p>
+  </td>
+  <td width=234 valign=top style='width:184.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US><img width=220
+  height=228 id="그림 34" src="ans.files/image014.png"></span></p>
+  </td>
+  <td width=237 valign=top style='width:184.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US><img width=223
+  height=228 id="그림 35" src="ans.files/image015.png"></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:16.0pt;line-height:
+107%'>Q2. MERGE EXPOSURE STACK INTO HDR IMAGE</span></b><b><span lang=EN-US
+style='font-size:12.0pt;line-height:107%'> </span></b><b><span lang=EN-US
+style='font-size:16.0pt;line-height:107%'>&amp;</span></b><b><span lang=EN-US
+style='font-size:12.0pt;line-height:107%'> </span></b><b><span lang=EN-US
+style='font-size:16.0pt;line-height:107%'>Q3. EVALUATION</span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>Description </span></b></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:107%'>linear
+merging</span><span style='font-size:12.0pt;line-height:107%'>공식으로</span><span
+lang=EN-US style='font-size:10.0pt;line-height:107%;font-family:"맑은 고딕"'><img
+width=270 height=67 src="ans.files/image016.png"></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:107%'>logarithmic
+merging </span><span style='font-size:12.0pt;line-height:107%'>공식으로 </span><span
+lang=EN-US style='font-size:10.0pt;line-height:107%;font-family:"맑은 고딕"'><img
+width=392 height=67 src="ans.files/image017.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>을 사용하였다<span
+lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>또한 <span
+lang=EN-US>Evaluation</span>을 위해 원본 이미지에 있는</span></p>
+
+<p class=MsoNormal><span lang=EN-US><img width=259 height=213 id="그림 58"
+src="ans.files/image018.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:107%'>6</span><span
+style='font-size:12.0pt;line-height:107%'>개 점의 <span lang=EN-US>luminacity</span>를
+<span lang=EN-US>XYZ </span>색공간에서 비교하여 얼마나 <span lang=EN-US>linear</span>한지 확인하는
+방법을 사용하였다<span lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>다만 색공간 변환 과정에서</span></p>
+
+<p class=MsoNormal><span lang=EN-US><img width=444 height=126 id="그림 1"
+src="ans.files/image019.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>오류가 발생하여 <span
+lang=EN-US>srgb</span>로 비교하였다<span lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>Code</span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='background:#FFF2CC;border-collapse:collapse;border:none'>
+ <tr style='height:90.6pt'>
+  <td width=707 valign=top style='width:538.25pt;border:solid windowtext 1.0pt;
+  padding:5.4pt 5.4pt 5.4pt 5.4pt;height:90.6pt'>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>for</span><span lang=EN-US
+  style='font-family:"Courier New";color:black'> chan = 1:3</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; m = 0;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> i = 1:500</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> j = 1:750</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  wsum = 0;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  v = 0;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> f = 1:16</span><span
+  lang=EN-US style='font-size:12.0pt;font-family:"Courier New"'> </span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:forestgreen'>%
+  Descripted below</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:forestgreen'>%
+  /--</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:forestgreen'>%
+  --</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:forestgreen'>%
+  --</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:forestgreen'>%
+  --/</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  wsum = wsum + getw(image_jpg{f}(i, j, chan));</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>if</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> wsum ~= 0</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  v = v / wsum;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:forestgreen'>%
+  For Logarithm merging</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:forestgreen'>%
+  /--</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  v = exp(v);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:forestgreen'>%
+  --/</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  image_res(i, j, chan) = v;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>if</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> (m &lt; v)</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  m = v;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; image_res(:,
+  :, chan) = image_res(:, :, chan) ./ m;</span><span lang=EN-US
+  style='font-size:12.0pt;font-family:"Courier New"'> </span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>end</span><span lang=EN-US
+  style='font-family:"Courier New";color:black'> </span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-size:12.0pt;font-family:"Courier New"'>&nbsp;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:forestgreen'>% Image Evaluation</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>image_xyz = rgb2xyz(image_res, </span><span
+  lang=EN-US style='font-family:"Courier New";color:#A020F0'>'ColorSpace'</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'>, </span><span
+  lang=EN-US style='font-family:"Courier New";color:#A020F0'>'srgb'</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>lum = zeros(6, 1);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>for</span><span lang=EN-US
+  style='font-family:"Courier New";color:black'> f = 1:6</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> i = fp(f, 1) - 3 :
+  fp(f, 1) + 3</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> j = fp(f, 2) - 3 :
+  fp(f, 2) + 3</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  lum(f) = lum(f) + image_xyz(j, i, 2);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; lum(f) =
+  log(lum(f) / 49);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>lumerr = 0;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>for</span><span lang=EN-US
+  style='font-family:"Courier New";color:black'> f = 2:5</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; lumerr =
+  lumerr + ((lum(1) + (lum(6) - lum(1)) * (f-1) / 5) - lum(f)) ^ 2;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>end</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>For Raw, Linear merging</span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='background:#FFF2CC;border-collapse:collapse;border:none'>
+ <tr style='height:26.0pt'>
+  <td width=707 valign=top style='width:535.95pt;border:solid windowtext 1.0pt;
+  padding:5.4pt 5.4pt 5.4pt 5.4pt;height:26.0pt'>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  v = v + getw(image_tiff{f}(i, j, chan)) * </span><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>...</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  double(image_tiff{f}(i, j, chan)) * 2 ^ (-f);</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>For Raw Lorarithm merging</span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='background:#FFF2CC;border-collapse:collapse;border:none'>
+ <tr style='height:26.0pt'>
+  <td width=707 valign=top style='width:535.95pt;border:solid windowtext 1.0pt;
+  padding:5.4pt 5.4pt 5.4pt 5.4pt;height:26.0pt'>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>if</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'>(image_tiff{f}(i, j,
+  chan) &gt; 0)</span><span lang=EN-US style='font-size:12.0pt;font-family:
+  "Courier New"'> </span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  v = v + getw(image_tiff{f}(i, j, chan)) * </span><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>...</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  (log(double(image_tiff{f}(i, j, chan)))&nbsp; - 0.69314718 * f);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>For Rendered, Linear merging</span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='background:#FFF2CC;border-collapse:collapse;border:none'>
+ <tr style='height:26.0pt'>
+  <td width=707 valign=top style='width:535.95pt;border:solid windowtext 1.0pt;
+  padding:5.4pt 5.4pt 5.4pt 5.4pt;height:26.0pt'>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  v = v + getw(image_jpg{f}(i, j, chan)) * </span><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>...</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  exp(g(chan, image_jpg{f}(i, j, chan) + 1)) * 2 ^ (-f);</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>For Rendered, Lorarithm merging</span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='background:#FFF2CC;border-collapse:collapse;border:none'>
+ <tr style='height:26.0pt'>
+  <td width=707 valign=top style='width:535.95pt;border:solid windowtext 1.0pt;
+  padding:5.4pt 5.4pt 5.4pt 5.4pt;height:26.0pt'>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  v = v + getw(image_jpg{f}(i, j, chan)) * </span><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>...</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  (g(chan, image_jpg{f}(i, j, chan) + 1) - 0.69314718 * f);</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>Result</span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr>
+  <td width=85 valign=top style='width:63.4pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=241 valign=top style='width:184.3pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>x5</span></p>
+  </td>
+  <td width=240 valign=top style='width:5.0cm;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>x125</span></p>
+  </td>
+  <td width=241 valign=top style='width:181.6pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>x625</span></p>
+  </td>
+  <td width=145 valign=top style='width:108.95pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='height:4.0cm'>
+  <td width=85 valign=top style='width:63.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:4.0cm'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>raw</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>uniform</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>linear</span></p>
+  </td>
+  <td width=241 valign=top style='width:184.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:4.0cm'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=227 height=151 src="ans.files/image020.jpg"></span></p>
+  </td>
+  <td width=240 valign=top style='width:5.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:4.0cm'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=226 height=151 src="ans.files/image021.jpg"></span></p>
+  </td>
+  <td width=241 valign=top style='width:181.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:4.0cm'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=227 height=151 src="ans.files/image022.jpg"></span></p>
+  </td>
+  <td width=145 valign=top style='width:108.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:4.0cm'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US><img width=130
+  height=87 id="그림 49" src="ans.files/image023.jpg"></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>0.03</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=85 valign=top style='width:63.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>raw</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>uniform</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>logarithm</span></p>
+  </td>
+  <td width=241 valign=top style='width:184.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=226 height=151 src="ans.files/image024.jpg"></span></p>
+  </td>
+  <td width=240 valign=top style='width:5.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=226 height=151 src="ans.files/image025.jpg"></span></p>
+  </td>
+  <td width=241 valign=top style='width:181.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=226 height=151 src="ans.files/image026.jpg"></span></p>
+  </td>
+  <td width=145 valign=top style='width:108.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US><img width=130
+  height=90 id="그림 50" src="ans.files/image027.jpg"></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>0.0167</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=85 valign=top style='width:63.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>raw</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>gaussian
+  </span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>linear</span></p>
+  </td>
+  <td width=241 valign=top style='width:184.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=226 height=151 src="ans.files/image028.jpg"></span></p>
+  </td>
+  <td width=240 valign=top style='width:5.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=226 height=151 src="ans.files/image029.jpg"></span></p>
+  </td>
+  <td width=241 valign=top style='width:181.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=227 height=151 src="ans.files/image030.jpg"></span></p>
+  </td>
+  <td width=145 valign=top style='width:108.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US><img width=128
+  height=89 id="그림 52" src="ans.files/image031.jpg"></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>0.1133</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=85 valign=top style='width:63.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>raw</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>gaussian</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>logarithm</span></p>
+  </td>
+  <td width=241 valign=top style='width:184.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=226 height=151 src="ans.files/image032.jpg"></span></p>
+  </td>
+  <td width=240 valign=top style='width:5.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=226 height=151 src="ans.files/image033.jpg"></span></p>
+  </td>
+  <td width=241 valign=top style='width:181.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=226 height=151 src="ans.files/image034.jpg"></span></p>
+  </td>
+  <td width=145 valign=top style='width:108.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US><img width=128
+  height=90 id="그림 51" src="ans.files/image035.jpg"></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>0.0325</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=85 valign=top style='width:63.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>rendered</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>uniform</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>linear</span></p>
+  </td>
+  <td width=241 valign=top style='width:184.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=226 height=151 src="ans.files/image036.jpg"></span></p>
+  </td>
+  <td width=240 valign=top style='width:5.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=226 height=151 src="ans.files/image037.jpg"></span></p>
+  </td>
+  <td width=241 valign=top style='width:181.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=226 height=151 src="ans.files/image038.jpg"></span></p>
+  </td>
+  <td width=145 valign=top style='width:108.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US><img width=129
+  height=80 id="그림 57" src="ans.files/image039.jpg"></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>0.0467</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=85 valign=top style='width:63.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>rendered</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>uniform</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>logarithm</span></p>
+  </td>
+  <td width=241 valign=top style='width:184.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=226 height=151 src="ans.files/image040.jpg"></span></p>
+  </td>
+  <td width=240 valign=top style='width:5.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=226 height=151 src="ans.files/image041.jpg"></span></p>
+  </td>
+  <td width=241 valign=top style='width:181.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=226 height=151 src="ans.files/image042.jpg"></span></p>
+  </td>
+  <td width=145 valign=top style='width:108.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US><img width=127
+  height=91 id="그림 59" src="ans.files/image043.jpg"></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>0.0053</span></p>
+  </td>
+ </tr>
+ <tr style='height:99.2pt'>
+  <td width=85 valign=top style='width:63.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:99.2pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>rendered</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>gaussian</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>linear</span></p>
+  </td>
+  <td width=241 valign=top style='width:184.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:99.2pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=226 height=151 src="ans.files/image044.jpg"></span></p>
+  </td>
+  <td width=240 valign=top style='width:5.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:99.2pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=226 height=151 src="ans.files/image045.jpg"></span></p>
+  </td>
+  <td width=241 valign=top style='width:181.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:99.2pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=226 height=151 src="ans.files/image046.jpg"></span></p>
+  </td>
+  <td width=145 valign=top style='width:108.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:99.2pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US><img width=130
+  height=84 id="그림 60" src="ans.files/image047.jpg"></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>0.0510</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=85 valign=top style='width:63.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>rendered</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>gaussian</span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>logarithm</span></p>
+  </td>
+  <td width=241 valign=top style='width:184.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=226 height=151 src="ans.files/image048.jpg"></span></p>
+  </td>
+  <td width=240 valign=top style='width:5.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=226 height=151 src="ans.files/image049.jpg"></span></p>
+  </td>
+  <td width=241 valign=top style='width:181.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'><img
+  width=226 height=151 src="ans.files/image050.jpg"></span></p>
+  </td>
+  <td width=145 valign=top style='width:108.95pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US><img width=131
+  height=93 id="그림 56" src="ans.files/image051.jpg"></span></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>0.0488</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>&nbsp;</span></b></p>
+
+</div>
+
+</body>
+
+</html>
