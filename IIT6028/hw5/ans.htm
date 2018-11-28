@@ -1,0 +1,622 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"맑은 고딕";
+	panose-1:2 11 5 3 2 0 0 2 0 4;}
+@font-face
+	{font-family:"\@맑은 고딕";
+	panose-1:2 11 5 3 2 0 0 2 0 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:107%;
+	text-autospace:none;
+	word-break:break-hangul;
+	font-size:10.0pt;
+	font-family:"맑은 고딕";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"머리글 Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:107%;
+	layout-grid-mode:char;
+	text-autospace:none;
+	word-break:break-hangul;
+	font-size:10.0pt;
+	font-family:"맑은 고딕";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"바닥글 Char";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:107%;
+	layout-grid-mode:char;
+	text-autospace:none;
+	word-break:break-hangul;
+	font-size:10.0pt;
+	font-family:"맑은 고딕";}
+span.MsoPlaceholderText
+	{color:gray;}
+span.Char
+	{mso-style-name:"머리글 Char";
+	mso-style-link:머리글;}
+span.Char0
+	{mso-style-name:"바닥글 Char";
+	mso-style-link:바닥글;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:107%;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:3.0cm 72.0pt 72.0pt 72.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=KO>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:16.0pt;line-height:
+107%'>Q1. Initials &amp; Q2. Sub-aperture views</span></b><b><span lang=EN-US
+style='font-size:12.0pt;line-height:107%'> </span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>Description</span></b></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>주어진<span
+lang=EN-US> plenoptic </span>카메라 이미지가<span lang=EN-US> 1</span>픽셀당 <span
+lang=EN-US>16x16</span>의<span lang=EN-US> aparture domain source</span>를 가지고 있으므로<span
+lang=EN-US>, </span>이 <span lang=EN-US>lightfield</span>의 <span lang=EN-US>(u,v)</span>차원은
+<span lang=EN-US>16x16</span>이 된다<span lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>따라서<span
+lang=EN-US> L = 16x16x400x700x3 matrix</span>를 정의하고 여기에 이미지의 픽셀을 채워 넣으면 된다<span
+lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>그리고<span
+lang=EN-US> mosaic </span>이미지는 <span lang=EN-US>L(x, y, :, :, :)</span>가 그대로<span
+lang=EN-US> aparture domain</span>에서 <span lang=EN-US>x, y</span>점의 <span
+lang=EN-US>pinhole image</span>가 된다<span lang=EN-US>.</span></span><span
+lang=EN-US style='font-size:12.0pt;line-height:107%'> </span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>Code</span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='background:#FFF2CC;border-collapse:collapse;border:none'>
+ <tr style='height:90.6pt'>
+  <td width=707 valign=top style='width:609.15pt;border:solid windowtext 1.0pt;
+  padding:5.4pt 5.4pt 5.4pt 5.4pt;height:90.6pt'>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>img_plenoptic = imread(</span><span
+  lang=EN-US style='font-family:"Courier New";color:#A020F0'>'data/chessboard_lightfield.png'</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>lightfield = zeros(16, 16, 400,
+  700, 3);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>for</span><span lang=EN-US
+  style='font-family:"Courier New";color:black'> x = 1:400</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> y = 1:700</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> i = 1:16</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> j = 1:16</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> c = 1:3</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  lightfield(i, j, x, y, c) = double(img_plenoptic( (x - 1) * 16 + i, </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>...</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  (y - 1) * 16 + j, c)) / 256.;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>img_mosaic = zeros(6400, 11200,
+  3);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>for</span><span lang=EN-US
+  style='font-family:"Courier New";color:black'> i = 1:16</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> j = 1:16</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  img_mosaic( (i-1) * 400 + 1 : (i-1) * 400 + 400, (j-1) * 700 + 1 : (j-1) *
+  700 + 700, :) </span><span lang=EN-US style='font-family:"Courier New";
+  color:blue'>...</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  = lightfield(i, j, :, :, :);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>imwrite(img_mosaic, </span><span
+  lang=EN-US style='font-family:"Courier New";color:#A020F0'>'mosaic.png'</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'>);</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>Result</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US><img width=1004 height=574
+src="ans.files/image001.jpg"></span></p>
+
+<p class=MsoNormal>원본 이미지 링크 <span lang=EN-US>: https://boratw.github.io/Homeworks/IIT6028/hw5/mosaic.png</span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:16.0pt;line-height:
+107%'>Q3. Refocusing and focal-stack generation</span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>Description</span></b></p>
+
+<p class=MsoNormal><span
+lang=EN-US style='font-size:10.0pt;line-height:107%;font-family:"맑은 고딕"'><img
+width=432 height=62 src="ans.files/image002.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>공식을 그대로 적용하였다<span
+lang=EN-US>. </span>이때 <span lang=EN-US>u,v</span>의 범위가 <span lang=EN-US>[1,16]</span>이
+아닌 <span lang=EN-US>[-7,8]</span>이어야 한다<span lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>또한 어째서인지 <span
+lang=EN-US>matlab</span>에서는<span lang=EN-US> y</span>축 방향을 반대로 해야 잘 적용되었다<span
+lang=EN-US>. </span>아마 <span lang=EN-US>matlab </span>내부의 이미지 처리 방법과 관련이 있는 것으로
+보인다<span lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>Code</span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='background:#FFF2CC;border-collapse:collapse;border:none'>
+ <tr style='height:90.6pt'>
+  <td width=707 valign=top style='width:609.15pt;border:solid windowtext 1.0pt;
+  padding:5.4pt 5.4pt 5.4pt 5.4pt;height:90.6pt'>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>img_depth = {};</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>for</span><span lang=EN-US
+  style='font-family:"Courier New";color:black'> d = 0:0.1:2</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; img =
+  zeros(400, 700, 3);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> x = 1:400</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> y = 1:700</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  sum = 0;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> i = -7:8</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> j = -7:8</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  sx = round(x + i * d);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  sy = round(y - j * d);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>if</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> sx &gt;= 1
+  &amp;&amp; sx &lt;= 400 &amp;&amp; sy &gt;= 1 &amp;&amp; sy &lt;= 700</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> c = 1:3</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  img(x, y, c) = img(x, y, c) + lightfield(i+8, j+8, sx, sy, c);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span lang=EN-US style='font-family:
+  "Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  sum = sum + 1;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  img(x, y, :) = img(x, y, :) / sum;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; imwrite(img,
+  strcat(</span><span lang=EN-US style='font-family:"Courier New";color:#A020F0'>'img_depth_'</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'>,num2str(d),</span><span
+  lang=EN-US style='font-family:"Courier New";color:#A020F0'>'.png'</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'>));</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+  img_depth{end + 1} = img;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>end</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>Result</span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr>
+  <td width=311 valign=top style='width:150.25pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>d
+  = 0</span></p>
+  </td>
+  <td width=311 valign=top style='width:150.25pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>d
+  = 0.6</span></p>
+  </td>
+  <td width=311 valign=top style='width:150.3pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><span lang=EN-US style='font-size:12.0pt'>d
+  = 1.2</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=311 valign=top style='width:150.25pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US style='font-size:12.0pt'><img width=297 height=170
+  src="ans.files/image003.jpg"></span></p>
+  </td>
+  <td width=311 valign=top style='width:150.25pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US style='font-size:12.0pt'><img width=297 height=170
+  src="ans.files/image004.jpg"></span></p>
+  </td>
+  <td width=311 valign=top style='width:150.3pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span lang=EN-US style='font-size:12.0pt'><img width=297 height=170
+  src="ans.files/image005.jpg"></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:16.0pt;line-height:
+107%'>Q4. All-focus image and depth from defocus</span></b><b><span lang=EN-US
+style='font-size:12.0pt;line-height:107%'> </span></b></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>Description</span></b></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>문제에 주어진 대로 각
+<span lang=EN-US>depth </span>이미지의 밝기를 구하고 여기에서 이를 <span lang=EN-US>blur</span>시킨
+이미지를 뺌으로서 이미지의 <span lang=EN-US>sharpness</span>를 구하였다<span lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>이후 <span
+lang=EN-US>sharpness</span>를 <span lang=EN-US>weight</span>으로 하여 전체 <span
+lang=EN-US>depth </span>이미지들을 합성하였다<span lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:107%'>low
+frequency </span><span style='font-size:12.0pt;line-height:107%'>이미지를 구하기 위한 <span
+lang=EN-US>gaussian filter</span>의 <span lang=EN-US>stddev</span>는 <span
+lang=EN-US>2,</span></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:107%'>sharpness</span><span
+style='font-size:12.0pt;line-height:107%'>를 <span lang=EN-US>blurring</span>하기 위한
+<span lang=EN-US>gaussian filter</span>의 <span lang=EN-US>stddev</span>는 <span
+lang=EN-US>5</span>를 사용하였다<span lang=EN-US>. </span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>다음으로 <span
+lang=EN-US>depth map</span>을 구하기 위해 각 <span lang=EN-US>depth</span>값에 위의 <span
+lang=EN-US>weight</span>를 동일하게 주어서 합성하였다<span lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>값이 작을수록 더 먼 물체이므로
+<span lang=EN-US>depth</span>의 최대값으로 나눈 후 <span lang=EN-US>1</span>에서 빼면 상대적 깊이를
+구할 수 있다<span lang=EN-US>.</span></span></p>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>Code</span></b></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='background:#FFF2CC;border-collapse:collapse;border:none'>
+ <tr style='height:90.6pt'>
+  <td width=707 valign=top style='width:609.15pt;border:solid windowtext 1.0pt;
+  padding:5.4pt 5.4pt 5.4pt 5.4pt;height:90.6pt'>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>img_depth_lum = {};</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>img_depth_low = {};</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>img_depth_high = {};</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>img_depth_sharp = {};</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>for</span><span lang=EN-US
+  style='font-family:"Courier New";color:black'> d = 1:21</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:forestgreen'>% Get
+  luminance</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+  img_depth_lum{end + 1} = rgb2xyz(img_depth{d}, </span><span lang=EN-US
+  style='font-family:"Courier New";color:#A020F0'>'ColorSpace'</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'>, </span><span
+  lang=EN-US style='font-family:"Courier New";color:#A020F0'>'srgb'</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'>);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+  img_depth_lum{end} = img_depth_lum{end}(:, :, 2);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:forestgreen'>% Get low
+  frequency</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+  img_depth_low{end + 1} = imgaussfilt(img_depth_lum{end}, 2);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:forestgreen'>% Get high
+  frequency</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+  img_depth_high{end + 1} = img_depth_lum{end} - img_depth_low{end};</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:forestgreen'>% Get
+  sharpness</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;
+  img_depth_sharp{end + 1} = imgaussfilt(img_depth_high{end} .^ 2, 5);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>img_all_focus = zeros(400, 700,
+  3);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>img_depth_gray = zeros(400,
+  700);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;</span><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>for</span><span lang=EN-US
+  style='font-family:"Courier New";color:black'> x = 1:400</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> y = 1:700</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  w = 0;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> d = 1:21</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>for</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'> c = 1:3</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  img_all_focus(x, y, c) = img_all_focus(x, y, c) + img_depth{d}(x, y, c) *
+  img_depth_sharp{d}(x, y);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  img_depth_gray(x, y) = img_depth_gray(x, y) + d * img_depth_sharp{d}(x, y);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  w = w + img_depth_sharp{d}(x, y);</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  img_all_focus(x, y, :) = img_all_focus(x, y, :) / w;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  img_depth_gray(x, y) = img_depth_gray(x, y) / w;</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+  lang=EN-US style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>&nbsp;</span><span lang=EN-US
+  style='font-family:"Courier New";color:blue'>end</span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>imwrite(img_all_focus, </span><span
+  lang=EN-US style='font-family:"Courier New";color:#A020F0'>'img_all_focus.png'</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'>);</span><span
+  lang=EN-US style='font-size:12.0pt;font-family:"Courier New"'> </span></p>
+  <p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:left;line-height:normal;word-break:keep-all'><span lang=EN-US
+  style='font-family:"Courier New";color:black'>imwrite(1. - img_depth_gray /
+  21, </span><span lang=EN-US style='font-family:"Courier New";color:#A020F0'>'img_depth.png'</span><span
+  lang=EN-US style='font-family:"Courier New";color:black'>);</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><b><span lang=EN-US style='font-size:12.0pt;line-height:
+107%'>Result</span></b></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:107%'>All-focused
+Image</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:107%'><img
+width=700 height=400 src="ans.files/image006.png"></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:107%'>Depth
+map</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:107%'><img
+width=700 height=400 src="ans.files/image007.png"></span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>
